@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>DjValidator</title>
+	<link rel="stylesheet" href="../../lib/bootstrap/bootstrap.min.css">
+</head>
+<body>
+	<nav class="navbar navbar-default">
+	  <div class="container-fluid">
+	    <!-- Brand and toggle get grouped for better mobile display -->
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	      <a class="navbar-brand" href="#">DjValidator</a>
+	    </div>
+	
+	    <!-- Collect the nav links, forms, and other content for toggling -->
+	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	      <ul class="nav navbar-nav">
+	        <li><a href="../../v1/es/index.html">v1</a></li>
+	        <li class="active"><a href="index.html">versión 2 <span class="sr-only">(current)</span></a></li>
+	        <li><a href="https://github.com/esneyderg357/DjValidator">Descarga</a></li>
+	      </ul>
+	      <ul class="nav navbar-nav navbar-right">
+	        <li><a href="../en/index.html">English</a></li>
+	        <li class="active"><a href="index.html">Español</a></li>
+	      </ul>
+	    </div><!-- /.navbar-collapse -->
+	  </div><!-- /.container-fluid -->
+	</nav>
+	
+	<div class="row">
+		<div class="col-xs-6 col-sm-4 col-md-3">
+			<ul class="nav nav-pills nav-stacked">
+			  <li role="presentation" class="active"><a href="index.html">Inicio</a></li>
+			  <li role="presentation"><a href="como_usar.html">Como usar el plugin</a></li>
+			  <li role="presentation"><a href="validaciones.html">Validaciones disponibles</a></li>
+			  <li role="presentation"><a href="validacion_personalizada.html">Validaciones personalizadas</a></li>
+			  <li role="presentation"><a href="opciones.html">Opciones disponibles</a></li>
+			  <li role="presentation"><a href="personalizacion.html">Personalización</a></li>
+			  <li role="presentation"><a href="validacion_servidor.html">Validación en servidor</a></li>
+			  <li role="presentation"><a href="atributos.html">Atributos disponibles</a></li>
+			  <li role="presentation"><a href="caracteres.html">Caracteres reservados</a></li>
+			  <li role="presentation"><a href="etiquetas.html">Referencia de etiquetas</a></li>
+			  <li role="presentation"><a href="demo.html">Demo</a></li>
+			</ul>
+		</div>
+		<div class="col-xs-6 col-sm-8 col-md-8">
+			<h3><b>DjValidator es el plugin de jquery para validación de  formularios web más simple, flexible y rápido de usar.</b></h3>
+			<h4>DjValidator 2: Más simple, más potente...</h4>
+     		
+     		<br><p>Características:</p>
+		    <ul>
+		      <li>Solo requiere Jquery, 1.5.1 o superior, no  depende de ningún UI framework.</li>
+		      <li>Las reglas de validación se colocan usando un  único atributo <b>"data-dj-validator"</b>, además reconoce el atributo <b>&ldquo;required&rdquo;</b> y  valida el campo como obligatorio.</li>
+		      <li>Tiene todas las opciones de personalización.</li>
+		      <li>Juego de reglas de validación multifuncionales  compacto y de escritura rápida.</li>
+		      <li>Diferentes formas de ejecutar la validación.</li>
+		      <li>Soporta validación en servidor (asíncrona).</li>
+		      <li>22 reglas de validación disponibles.</li>
+		      <li>Se puede crear validadores propios mediante 3 alternativas diferentes.</li>
+		      <li>Se pueden cambiar las reglas de validación de forma dinámica.</li>
+		      <li>Capacidad de cambiar el estilo de los mensajes  de validación.<strong> </strong></li>
+		    </ul>
+		    <br>
+		    
+		    <form id="form" class="form-horizontal">
+				Ejemplo:
+				<div class="form-group">
+				  <label class="col-md-4 control-label" for="textarea">Text (text)</label>
+				  <div class="col-md-4">                     
+				    <input class="form-control" name="input1" placeholder="requerido, de 3 a 6 digitos" data-dj-validator="dig,3,6" required />
+				  </div>
+				  <div class="col-md-4">
+				    <button type="button" id="validate" name="singlebutton" class="btn btn-primary">¡Validar!</button>
+				  </div>
+				</div>
+			</form>
+		    
+    		<p><strong>Uso Básico:</strong>
+	    <ol>
+	      <li><b>Agregue los scripts de jquery and  djValidator:</b>
+	      	<pre>
+	    		<code>
+&lt;script type="text/javascript" src="../lib/jquery/jquery.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="../dist/DjValidator.js"&gt;&lt;/script&gt;
+				</code>
+	    	</pre>
+	    	<p><a href="https://github.com/esneyderg357/DjValidator"><b>Descargar desde el repositorio</b></a></p>
+	    	<p>La librería también está disponible en <a href="https://www.npmjs.com/package/djvalidator"><b>Npm</b></a> y <b>Bower</b>.</p>
+	    	<pre>
+	    		<code>
+npm i djvalidator
+				</code>
+	    	</pre><br>
+	      </li>
+	      <li><b>Coloque las reglas de validación que necesite:</b>
+	      	<pre>
+	    		<code>
+&lt;input name="input1" type="text" data-dj-validator="atext,3,12" required&gt;
+				</code>
+	    	</pre>
+	    	<p>Agregue la regla de  validación en los campos necesarios con la propiedad <b>data-dj-validator</b>, 
+	    	   use el atributo <b>required</b> cuando el campo sea obligatorio:<p>
+	    	<p>Revise <a href="validaciones.html">aquí</a> todos los validadores disponibles.</p> <br>
+	      </li>
+	      <li><b>Use el plugin en alguno de estos modos:</b><br>
+	      <p><b>Submit:</b>La validación se ejecuta en el evento submit del formulario, realizando el envío automático cuando 
+	      	 el formulario es válido, también sirve para validar campos, es el valor por defecto:</p>
+	      	<pre>
+	    		<code>
+//por defecto el modo es "submit"
+$('#form').djValidator();
+//Validando un solo campo
+var resp=$('#input').djValidator();
+				</code>
+	    	</pre>	      	 
+	      <p><b>Function:</b>La validación se ejecuta inmediatamente como una función, devuelve true o false según el resultado:</p>
+	      	<pre>
+	    		<code>
+var resp=$('#form').djValidator({mode:’function’});
+				</code>
+	    	</pre>
+	    	<p>Revise <a href="opciones.html">aquí</a> todas las opciones disponibles</p>
+	      </li>
+	    </ol>
+	  </div>
+	</div>
+	 <!-- Footer -->
+	<footer class="navbar">
+		<hr>
+	  <!-- Copyright -->
+	  <div class="footer-copyright text-center py-3">© 2020 Copyright:
+	    <a href="mailto:esneyderg357@gmail.com"> David Esneyder Jerez Garnica</a>
+	  </div>
+	  <!-- Copyright -->
+	
+	</footer>
+	<!-- Footer -->
+</body>
+<script type="text/javascript" src="../../lib/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="../../lib/DjValidator.min.js"></script>
+<script type="text/javascript" src="../../lib/DjValidator-es.js"></script>
+<script type="text/javascript">
+		$(document).ready(function(){
+			$('#validate').click(function(){
+				alert($('#form').djValidator({mode:'function'}));
+			});
+		});
+</script>
+</html>

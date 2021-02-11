@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>DjValidator</title>
+	<link rel="stylesheet" href="../../lib/bootstrap/bootstrap.min.css">
+</head>
+<body>
+	<nav class="navbar navbar-default">
+	  <div class="container-fluid">
+	    <!-- Brand and toggle get grouped for better mobile display -->
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	      <a class="navbar-brand" href="#">DjValidator</a>
+	    </div>
+	
+	    <!-- Collect the nav links, forms, and other content for toggling -->
+	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	      <ul class="nav navbar-nav">
+	        <li><a href="../../v1/es/index.html">v1</a></li>
+	        <li class="active"><a href="index.html">versión 2 <span class="sr-only">(current)</span></a></li>
+	        <li><a href="https://github.com/esneyderg357/DjValidator">Descarga</a></li>
+	      </ul>
+	      <ul class="nav navbar-nav navbar-right">
+	        <li><a href="../en/index.html">English</a></li>
+	        <li class="active"><a href="index.html">Español</a></li>
+	      </ul>
+	    </div><!-- /.navbar-collapse -->
+	  </div><!-- /.container-fluid -->
+	</nav>
+	
+	<div class="row">
+		<div class="col-xs-6 col-sm-4 col-md-3">
+			<ul class="nav nav-pills nav-stacked">
+			  <li role="presentation"><a href="index.html">Inicio</a></li>
+			  <li role="presentation"><a href="como_usar.html">Como usar el plugin</a></li>
+			  <li role="presentation"><a href="validaciones.html">Validaciones disponibles</a></li>
+			  <li role="presentation"><a href="validacion_personalizada.html">Validaciones personalizadas</a></li>
+			  <li role="presentation" class="active"><a href="opciones.html">Opciones disponibles</a></li>
+			  <li role="presentation"><a href="personalizacion.html">Personalización</a></li>
+			  <li role="presentation"><a href="validacion_servidor.html">Validación en servidor</a></li>
+			  <li role="presentation"><a href="atributos.html">Atributos disponibles</a></li>
+			  <li role="presentation"><a href="caracteres.html">Caracteres reservados</a></li>
+			  <li role="presentation"><a href="etiquetas.html">Referencia de etiquetas</a></li>
+			  <li role="presentation"><a href="demo.html">Demo</a></li>
+			</ul>
+		</div>
+		<div class="col-xs-6 col-sm-8 col-md-8">
+			<h3><b>Opciones disponibles</b></h3><br>
+			<p>El plugin se puede configurar usando las siguientes funciones:</p>
+	      	<pre>
+	    		<code>
+//Se están mostrando los valores por defecto:
+$('#form').djValidator({
+		mode: 'submit',
+		blur: true,
+		decorate: true,
+		border_color: 'red',
+		style:'display:none; color:red; text-align:inherit; font:italic bold .9em sans-serif',
+		template:'&lt;p class="dj-validator-msg" style="$style"&gt;$msg&lt;/p&gt;',
+		request_method: 'post',
+		success: function($form){return true;}
+});
+				</code>
+	    	</pre>			
+			
+			<table class="table table-bordered table-striped">
+			    <tr class="text-center">
+			      <td><strong>Propiedad</strong></td>
+			      <td><strong>Valores permitidos</strong></td>
+			      <td><strong>Descripción</strong></td>
+			    </tr>
+			    <tr>
+			      <td><p>mode</p></td>
+			      <td ><p><strong>&ldquo;submit&rdquo;    (valor por defecto)</strong><br>
+			        <strong>&ldquo;function&rdquo;</strong><br>
+			        <strong>&ldquo;clean&rdquo; </strong><br>
+			        <strong>&ldquo;blur&rdquo;</strong></p></td>
+			      <td>
+			      	<p>Especifica el modo en el que se ejecutará el plugin:<br><br>
+			        <strong>submit</strong>: La validación se ejecuta en el evento submit del formulario, bloqueando el envío cuando hay valores no válidos, también puede usarse para validar un solo campo.<br><br>
+			        <strong>function</strong>: La validación se ejecuta como llamada a una función    de forma inmediata, solo retorna: true, false o null(en validaciones con ajax). 
+			        Se invoca sobre un solo formulario y el formulario se debe enviar manualmente, ya sea en el evento <b>success</b> del plugin o usando el resultado en código externo.<br><br>
+			        <strong>clean</strong>: Limpia inmediatamente el formulario de los mensajes de    validaciones y decoraciones.<br><br>
+			        <strong>blur</strong>: Activa la validación campo por campo en los eventos    blur, se puede usar solo en conjunto con el modo &ldquo;
+			        <strong>function</strong>&rdquo;.</p>
+			      </td>
+			    </tr>
+			    <tr>
+			      <td><p>blur</p></td>
+			      <td ><p><strong>true    (valor por defecto)</strong><br>
+			        <strong>false</strong></p></td>
+			      <td><p>Activa la validación campo por campo en los eventos blur, equivalente    al modo &ldquo;<strong>blur</strong>&rdquo;, pero solo funciona cuando el modo es &ldquo;<strong>submit</strong>&rdquo;.</p></td>
+			    </tr>
+			    <tr>
+			      <td><p>decorate</p></td>
+			      <td ><p><strong>true</strong><br>
+			        <strong>false</strong></p></td>
+			      <td><p>Activa la decoración de los inputs cuando su valor no es válido, la decoración    consta de cambiar el color del borde del campo según la propiedad &ldquo;<strong>border_color</strong>&rdquo;.</p></td>
+			    </tr>
+			    <tr>
+			      <td><p>border_color</p></td>
+			      <td ><p><strong>&ldquo;red&rdquo;    (valor por defecto)</strong><br>
+			        <strong>Especificación    de color css (por nombre o valor hexadecimal)</strong></p></td>
+			      <td><p>Define el color de borde para la decoración de campos no válidos.</p></td>
+			    </tr>
+			    <tr>
+			      <td><p>style</p></td>
+			      <td ><p><strong>Valor    por defecto:</strong><br>
+			        <strong>&ldquo;display:none;    color:red; text-align:inherit; font:italic bold .9em sans-serif&rdquo;</strong></p></td>
+			      <td><p>Define el estilo css de los mensajes de validación.</p>
+			      <p>Se puede colocar <b>display:none;</b> para activar el efecto FadeIn en los mensajes.</p></td>
+			    </tr>
+			    <tr>
+			      <td><p>template</p></td>
+			      <td ><p><strong>Valor    por defecto:</strong><br>
+			        <strong>&ldquo;&lt;p    class=&quot;dj-validator-msg&quot; style=&quot;$style&quot;&gt;$msg&lt;/p&gt;&rdquo;</strong></p></td>
+			      <td><p>Define la plantilla html de los mensajes de validación, en la marca <strong>&quot;$style&rdquo; 
+			      </strong>se inserta el valor de la propiedad<strong> &ldquo;style&rdquo; </strong>y en la marca<strong> $msg </strong>se    inserta el mensaje de validación.<br><br>
+			        La clase &ldquo;<strong>dj-validator-msg&rdquo;</strong> debe conservarse para identificar    y borrar los mensajes de validación</p></td>
+			    </tr>
+			    <tr>
+			      <td><p>request_method</p></td>
+			      <td ><p><strong>&ldquo;post&rdquo; (valor por defecto)</strong><br>
+			        <strong>&ldquo;get&rdquo;</strong></p></td>
+			      <td><p>Define el método de comunicación cuando se realizan validaciones en    el servidor.</p></td>
+			    </tr>
+			    <tr>
+			      <td><p>success</p></td>
+			      <td ><p><strong>function($form){return true;}</strong></p></td>
+			      <td><p>Modo &ldquo;<strong>submit</strong>&rdquo;: Define la función a ejecutarse cuando el    formulario sea válido, por defecto se realiza el 
+			      envío del formulario automáticamente cuando la validación devuelve true.<br><br>
+			      Modo &ldquo;<strong>function</strong>&rdquo;: No se ejecuta, excepto cuando se usa validación en el servidor, en ese caso es obligatorio declarar
+			       la lógica dentro de esta función.</p></td>
+			    </tr>
+			  </table>
+	  </div>
+	</div>
+	 <!-- Footer -->
+	<footer class="navbar">
+		<hr>
+	  <!-- Copyright -->
+	  <div class="footer-copyright text-center py-3">© 2020 Copyright:
+	    <a href="mailto:esneyderg357@gmail.com"> David Esneyder Jerez Garnica</a>
+	  </div>
+	  <!-- Copyright -->
+	
+	</footer>
+	<!-- Footer -->
+</body>
+</html>

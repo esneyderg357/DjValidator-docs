@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>DjValidator</title>
+	<link rel="stylesheet" href="../../lib/bootstrap/bootstrap.min.css">
+</head>
+<body>
+	<nav class="navbar navbar-default">
+	  <div class="container-fluid">
+	    <!-- Brand and toggle get grouped for better mobile display -->
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	      <a class="navbar-brand" href="#">DjValidator</a>
+	    </div>
+	
+	    <!-- Collect the nav links, forms, and other content for toggling -->
+	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	      <ul class="nav navbar-nav">
+	        <li><a href="../../v1/en/index.html">v1</a></li>
+	        <li class="active"><a href="index.html">version 2 <span class="sr-only">(current)</span></a></li>
+	      </ul>
+	      <ul class="nav navbar-nav navbar-right">
+	        <li class="active"><a href="index.html">English</a></li>
+	        <li><a href="../es/index.html">Español</a></li>
+	      </ul>
+	    </div><!-- /.navbar-collapse -->
+	  </div><!-- /.container-fluid -->
+	</nav>
+	
+	<div class="row">
+		<div class="col-xs-6 col-sm-4 col-md-3">
+			<ul class="nav nav-pills nav-stacked">
+			  <li role="presentation"><a href="index.html">Get started</a></li>
+			  <li role="presentation"><a href="how_to_use.html">How to use</a></li>
+			  <li role="presentation"><a href="validators.html">Validations available</a></li>
+			  <li role="presentation"><a href="custom_validation.html">Custom validations</a></li>
+			  <li role="presentation" class="active"><a href="options.html">Available options</a></li>
+			  <li role="presentation"><a href="personalization.html">Personalization</a></li>
+			  <li role="presentation"><a href="server_validation.html">Server validation</a></li>
+			  <li role="presentation"><a href="attributes.html">Attributes Available</a></li>
+			  <li role="presentation"><a href="characters.html">Reserved characters</a></li>
+			  <li role="presentation"><a href="labels.html">Label Reference</a></li>
+			  <li role="presentation"><a href="demo.html">Demo</a></li>
+			</ul>
+		</div>
+		<div class="col-xs-6 col-sm-8 col-md-8">
+			<h3><b>Available options</b></h3><br>
+			<p>The plugin can be configured using the following options:</p>
+	      	<pre>	    		<code>
+//default values:
+$('#form').djValidator({
+		mode: 'submit',
+		blur: true,
+		decorate: true,
+		border_color: 'red',
+		style:'display:none; color:red; text-align:inherit; font:italic bold .9em sans-serif',
+		template:'&lt;p class="dj-validator-msg" style="$style"&gt;$msg&lt;/p&gt;',
+		request_method: 'post',
+		success: function($form){return true;}
+});
+				</code>
+	    	</pre>			
+			
+			<table class="table table-bordered table-striped">
+			    <tbody><tr class="text-center">
+			      <td><strong>Option</strong></td>
+			      <td><strong>Allowed values</strong></td>
+			      <td><strong>Description</strong></td>
+			    </tr>
+			    <tr>
+			      <td><p>mode</p></td>
+			      <td><p><strong>“Submit” (default) </strong><br>
+			        <strong>“function” </strong><br>
+			        <strong>“clean” </strong><br>
+			        <strong>“blur”</strong></p></td>
+			      <td>
+			      	<p>Specifies how the plugin will be executed: <br><br>
+			        <strong>submit</strong> : Validation is executed in the submit event, blocking the submission when there are invalid values, it can also be used to validate a single field. <br><br>
+			        <strong>function</strong> : The validation is executed as a function call immediately, it only returns: true, false or null (in validations with ajax). A single form is invoked and the form must be submitted manually, either in the <b>success</b> event of the plugin or using the result in external code. <br><br>
+			        <strong>clean</strong> : Immediately clean the form of the validation and decoration messages. <br><br>
+			        <strong>blur</strong>: Activates field-by-field validation in blur events, can only be used in conjunction with the <strong>"function"</strong> mode
+			         .</p>
+			      </td>
+			    </tr>
+			    <tr>
+			      <td><p>blur</p></td>
+			      <td><p><strong>true (default) </strong><br>
+			        <strong>false</strong></p></td>
+			      <td><p>Activate field-by-field validation in blur events, equivalent to "<strong>blur</strong>" mode , but only works when the mode is "<strong>submit</strong>".</p></td>
+			    </tr>
+			    <tr>
+			      <td><p>decorate</p></td>
+			      <td><p><strong>true </strong><br>
+			        <strong>false</strong></p></td>
+			      <td><p>Activate input decoration when its value is not valid, the decoration consists of changing the border color according to “<strong>border_color</strong>” property.</p></td>
+			    </tr>
+			    <tr>
+			      <td><p>border_color</p></td>
+			      <td><p><strong>“red” (default) </strong><br>
+			        <strong>css color specification (by name or hexadecimal value)</strong></p></td>
+			      <td><p>Define the border color for decorating invalid fields.</p></td>
+			    </tr>
+			    <tr>
+			      <td><p>style</p></td>
+			      <td><p><strong>Default value: </strong><br>
+			        <strong>“display: none; color: net; text-align: inherit; font: italic bold .9em sans-serif ”</strong></p></td>
+			      <td><p>Define css style of validation messages.</p>
+			      <p>You can place <b>display: none; </b>to activate the FadeIn effect in messages.</p></td>
+			    </tr>
+			    <tr>
+			      <td><p>template</p></td>
+			      <td><p><strong>Default value: </strong><br>
+			        <strong>“&lt;p class =" dj-validator-msg "style =" $style "&gt; $msg &lt;/p&gt;”</strong></p></td>
+			      <td><p>Define html template of the validation messages, in <strong>"$style" 
+			      </strong> mark the value of the <strong>"style"</strong> property is inserted and in <strong>$msg</strong> mark the validation message is inserted. <br><br>
+			        The class "<strong>dj-validator-msg</strong>" must be preserved to identify and delete validation messages</p></td>
+			    </tr>
+			    <tr>
+			      <td><p>request_method</p></td>
+			      <td><p><strong>"Post" (default) </strong><br>
+			        <strong>"get"</strong></p></td>
+			      <td><p>Defines the communication method when validations are performed on server.</p></td>
+			    </tr>
+			    <tr>
+			      <td><p>success</p></td>
+			      <td><p><strong>function ($ form) {return true;}</strong></p></td>
+			      <td><p>“ <strong>Submit</strong> ” mode : Defines the function to be executed when the form is valid, by default the form is sent automatically when the validation returns true. <br><br>
+			      “ <strong>Function</strong> ” mode : It is not executed, except when validation is used on the server, in this case it is required to declare this function.</p></td>
+			    </tr>
+			  </tbody></table>
+	  </div>
+	</div>
+	 <!-- Footer -->
+	<footer class="navbar">
+		<hr>
+	  <!-- Copyright -->
+	  <div class="footer-copyright text-center py-3">© 2020 Copyright:
+	     <a href="mailto:esneyderg357@gmail.com">David Esneyder Jerez Garnica</a>
+	  </div>
+	  <!-- Copyright -->
+	
+	</footer>
+	<!-- Footer -->
+</body>
+</html>

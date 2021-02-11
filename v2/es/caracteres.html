@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>DjValidator</title>
+	<link rel="stylesheet" href="../../lib/bootstrap/bootstrap.min.css">
+</head>
+<body>
+	<nav class="navbar navbar-default">
+	  <div class="container-fluid">
+	    <!-- Brand and toggle get grouped for better mobile display -->
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	      <a class="navbar-brand" href="#">DjValidator</a>
+	    </div>
+	
+	    <!-- Collect the nav links, forms, and other content for toggling -->
+	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	      <ul class="nav navbar-nav">
+	        <li><a href="../../v1/es/index.html">v1</a></li>
+	        <li class="active"><a href="index.html">versión 2 <span class="sr-only">(current)</span></a></li>
+	        <li><a href="https://github.com/esneyderg357/DjValidator">Descarga</a></li>
+	      </ul>
+	      <ul class="nav navbar-nav navbar-right">
+	        <li><a href="../en/index.html">English</a></li>
+	        <li class="active"><a href="index.html">Español</a></li>
+	      </ul>
+	    </div><!-- /.navbar-collapse -->
+	  </div><!-- /.container-fluid -->
+	</nav>
+	
+	<div class="row">
+		<div class="col-xs-6 col-sm-4 col-md-3">
+			<ul class="nav nav-pills nav-stacked">
+			  <li role="presentation"><a href="index.html">Inicio</a></li>
+			  <li role="presentation"><a href="como_usar.html">Como usar el plugin</a></li>
+			  <li role="presentation"><a href="validaciones.html">Validaciones disponibles</a></li>
+			  <li role="presentation"><a href="validacion_personalizada.html">Validaciones personalizadas</a></li>
+			  <li role="presentation"><a href="opciones.html">Opciones disponibles</a></li>
+			  <li role="presentation"><a href="personalizacion.html">Personalización</a></li>
+			  <li role="presentation"><a href="validacion_servidor.html">Validación en servidor</a></li>
+			  <li role="presentation"><a href="atributos.html">Atributos disponibles</a></li>
+			  <li role="presentation" class="active"><a href="caracteres.html">Caracteres reservados</a></li>
+			  <li role="presentation"><a href="etiquetas.html">Referencia de etiquetas</a></li>
+			  <li role="presentation"><a href="demo.html">Demo</a></li>
+			</ul>
+		</div>
+		<div class="col-xs-6 col-sm-8 col-md-8">
+			<h3><b>Caracteres reservados</b></h3><br>
+			<p>Los siguientes caracteres están reservados y no se pueden usar para formar una clave de
+			validación en el atributo <B>data-dj-validator</B>:</p>			
+			
+			<table class="table table-bordered table-striped">
+			    <tr class="text-center">
+			      <td><strong>Caracter</strong></td>
+			      <td><strong>Descripción</strong></td>
+			      <td><strong>Ejemplo</strong></td>
+			    </tr>
+			   <tr>
+			   <tr>
+			      <td nowrap><p>&amp;</p></td>
+			      <td><p>Separa claves de validación, se usa para colocar múltiples validadores al mismo campo.</p></td>
+			      <td nowrap><p>data-dj-validator    =&ldquo;atext,3,12<strong>&amp;</strong>word,3,12&rdquo;</p></td>
+			   </tr>
+			   <tr>
+			      <td nowrap><p>,</p></td>
+			      <td><p>Separa los parámetros de una clave de validación.</p></td>
+			      <td nowrap><p>data-dj-validator    =&ldquo;Text<strong>,</strong>3<strong>,</strong>50&rdquo;</p></td>
+			   </tr>
+			   <tr>
+			      <td nowrap><p>|</p></td>
+			      <td><p>Separa los valores de un parámetro de valores múltiples (file, efile)</p></td>
+			      <td nowrap><p>data-dj-validator    = &ldquo;efile,jpg<strong>|</strong>jpeg<strong>|</strong>png<strong>|</strong>bmp&rdquo;</p></td>
+			   </tr>
+			   <tr>
+			      <td nowrap><p>*</p></td>
+			      <td><p>Omite un parámetro permitido por la clave de validación (<a href="validaciones.html">referencia de validadores</a>).</p></td>
+			      <td nowrap><p>data-dj-validator    = &ldquo;atext,5,<strong>*</strong>&rdquo;</p></td>
+			   </tr>
+			   <tr>
+			      <td nowrap><p>°<br>
+			        (v 1.1.0+) </p></td>
+			      <td><p>Se usa con el validador <b>&ldquo;regexp&rdquo;</b>, para reemplazar las comas que pueda contener la expresión regular, puesto que la coma es un caracter reservado, genera un error.</p></td>
+			      <td nowrap><p>&quot;regexp,^[aeiou]{3<strong>°</strong>5}$,i&quot;</p></td>
+			   </tr>
+			  </table>
+	  </div>
+	</div>
+	 <!-- Footer -->
+	<footer class="navbar">
+		<hr>
+	  <!-- Copyright -->
+	  <div class="footer-copyright text-center py-3">© 2020 Copyright:
+	    <a href="mailto:esneyderg357@gmail.com"> David Esneyder Jerez Garnica</a>
+	  </div>
+	  <!-- Copyright -->
+	
+	</footer>
+	<!-- Footer -->
+</body>
+</html>

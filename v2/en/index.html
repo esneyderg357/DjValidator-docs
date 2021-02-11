@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>DjValidator</title>
+	<link rel="stylesheet" href="../../lib/bootstrap/bootstrap.min.css">
+</head>
+<body>
+	<nav class="navbar navbar-default">
+	  <div class="container-fluid">
+	    <!-- Brand and toggle get grouped for better mobile display -->
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	      <a class="navbar-brand" href="#">DjValidator</a>
+	    </div>
+	
+	    <!-- Collect the nav links, forms, and other content for toggling -->
+	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	      <ul class="nav navbar-nav">
+	        <li><a href="../../v1/en/index.html">v1</a></li>
+	        <li class="active"><a href="index.html">version 2 <span class="sr-only">(current)</span></a></li>
+	      </ul>
+	      <ul class="nav navbar-nav navbar-right">
+	        <li class="active"><a href="index.html">English</a></li>
+	        <li><a href="../es/index.html">Español</a></li>
+	      </ul>
+	    </div><!-- /.navbar-collapse -->
+	  </div><!-- /.container-fluid -->
+	</nav>
+	
+	<div class="row">
+		<div class="col-xs-6 col-sm-4 col-md-3">
+			<ul class="nav nav-pills nav-stacked">
+			  <li role="presentation" class="active"><a href="index.html">Get started</a></li>
+			  <li role="presentation"><a href="how_to_use.html">How to use</a></li>
+			  <li role="presentation"><a href="validators.html">Validations available</a></li>
+			  <li role="presentation"><a href="custom_validation.html">Custom validations</a></li>
+			  <li role="presentation"><a href="options.html">Available options</a></li>
+			  <li role="presentation"><a href="personalization.html">Personalization</a></li>
+			  <li role="presentation"><a href="server_validation.html">Server validation</a></li>
+			  <li role="presentation"><a href="attributes.html">Attributes Available</a></li>
+			  <li role="presentation"><a href="characters.html">Reserved characters</a></li>
+			  <li role="presentation"><a href="labels.html">Label Reference</a></li>
+			  <li role="presentation"><a href="demo.html">Demo</a></li>
+			</ul>
+		</div>
+		<div class="col-xs-6 col-sm-8 col-md-8">
+			<h3><b>DjValidator is the most simple, flexible and quick to use jquery plugin for web form validation.</b></h3>
+			<h4>DjValidator 2: more simple, more powerful ...</h4>
+     		
+     		<br><p>Features:</p>
+		    <ul>
+		      <li>Only requires Jquery, 1.5.1 or higher, it does not depend on any UI framework.</li>
+		      <li>The validation rules are placed using a single <b>"data-dj-validator"</b> attribute, it also recognizes the <b>"required"</b> attribute </font>for validate required fields.</li>
+		      <li>All customization options: style, messagess and validations.</li>
+		      <li>Compact and fast write multifunctional validation rules set.</li>
+		      <li>Different ways to execute validation.</li>
+		      <li>Supports server validation (asynchronous).</li>
+		      <li>22 validation rules available.</li>
+		      <li>You can create your own validators using 3 different alternatives.</li>
+		      <li>Validation rules can be changed dynamically.</li>
+		      <li>Change the style of validation messages.</li>
+		    </ul>
+		    <br>
+		    
+		    <form id="form" class="form-horizontal">
+				Example:
+				<div class="form-group">
+				  <label class="col-md-4 control-label" for="textarea">Text (text)</label>
+				  <div class="col-md-4">                     
+				    <input class="form-control" name="input1" placeholder="required, 3 to 6 digits" data-dj-validator="dig,3,6" required="">
+				  </div>
+				  <div class="col-md-4">
+				    <button type="button" id="validate" name="singlebutton" class="btn btn-primary">Validate!</button>
+				  </div>
+				</div>
+			</form>
+		    
+    		<p><strong>Basic Usage:</strong>
+	    </p><ol>
+	      <li><b>Add the jquery and djValidator scripts:</b>
+	      	<pre>	    		<code><font></font>
+&lt;script type="text/javascript" src="../lib/jquery/jquery.js"&gt;&lt;/script&gt;<font></font>
+&lt;script type="text/javascript" src="../dist/DjValidator.js"&gt;&lt;/script&gt;<font></font>
+				</code>
+	    	</pre>
+	    	<p><a href="https://github.com/esneyderg357/DjValidator"><b>Download from the repository</b></a></p>
+	    	<p>The plugin is also available in <a href="https://www.npmjs.com/package/djvalidator"><b>Npm</b></a> and <b>Bower</b> .</p>
+	    	<pre>	    		<code><font></font>
+npm i djvalidator<font></font>
+				</code>
+	    	</pre><br>
+	      </li>
+	      <li><b>Place the validation rules you need:</b>
+	      	<pre>	    		<code><font></font>
+&lt;input name="input1" type="text" data-dj-validator="atext,3,12" required&gt;<font></font>
+				</code>
+	    	</pre>
+	    	<p>Add the validation rule in required fields with the <b>data-dj-validator</b> property , use the <b>required</b> attribute </font>when the field is required:</p><p>
+	    	</p><p>Check <a href="validators.html">here</a> all available validators.</p> <br>
+	      </li>
+	      <li><b>Use the plugin in any of these modes:</b><br>
+	      <p><b>Submit:</b> The validation is executed in the form submit event, making automatic submission when form is valid, it also serves to validate fields, it is the default value:</p>
+	      	<pre>	    		<code><font></font>
+//default mode is "submit"<font></font>
+$('#form').djValidator();<font></font>
+//validate only a field<font></font>
+var resp=$('#input').djValidator();<font></font>
+				</code>
+	    	</pre>	      	 
+	      <p><b>Function:</b> The validation is executed immediately as a function, returns true or false according to result:</p>
+	      	<pre>	    		<code><font></font>
+var resp=$('#form').djValidator({mode:’function’});<font></font>
+				</code>
+	    	</pre>
+	    	<p>Check <a href="options.html">here</a> all available options.</p>
+	      </li>
+	    </ol>
+	  </div>
+	</div>
+	 <!-- Footer -->
+	<footer class="navbar">
+		<hr>
+	  <!-- Copyright -->
+	  <div class="footer-copyright text-center py-3">© 2020 Copyright:
+	     <a href="mailto:esneyderg357@gmail.com">David Esneyder Jerez Garnica</a>
+	  </div>
+	  <!-- Copyright -->
+	
+	</footer>
+	<!-- Footer -->
+
+	<script type="text/javascript" src="../../lib/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="../../lib/DjValidator.min.js"></script>
+	<script type="text/javascript">
+			$(document).ready(function(){
+				$('#validate').click(function(){
+					alert($('#form').djValidator({mode:'function'}));
+				});
+			});
+	</script>
+</body>
+</html>

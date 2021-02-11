@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>DjValidator</title>
+	<link rel="stylesheet" href="../../lib/bootstrap/bootstrap.min.css">
+</head>
+<body>
+	<nav class="navbar navbar-default">
+	  <div class="container-fluid">
+	    <!-- Brand and toggle get grouped for better mobile display -->
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	      <a class="navbar-brand" href="#">DjValidator</a>
+	    </div>
+	
+	    <!-- Collect the nav links, forms, and other content for toggling -->
+	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	      <ul class="nav navbar-nav">
+	        <li><a href="../../v1/es/index.html">v1</a></li>
+	        <li class="active"><a href="index.html">versión 2 <span class="sr-only">(current)</span></a></li>
+	        <li><a href="https://github.com/esneyderg357/DjValidator">Descarga</a></li>
+	      </ul>
+	      <ul class="nav navbar-nav navbar-right">
+	        <li><a href="../en/index.html">English</a></li>
+	        <li class="active"><a href="index.html">Español</a></li>
+	      </ul>
+	    </div><!-- /.navbar-collapse -->
+	  </div><!-- /.container-fluid -->
+	</nav>
+	
+	<div class="row">
+		<div class="col-xs-6 col-sm-4 col-md-3">
+			<ul class="nav nav-pills nav-stacked">
+			  <li role="presentation"><a href="index.html">Inicio</a></li>
+			  <li role="presentation" class="active"><a href="como_usar.html">Como usar el plugin</a></li>
+			  <li role="presentation"><a href="validaciones.html">Validaciones disponibles</a></li>
+			  <li role="presentation"><a href="validacion_personalizada.html">Validaciones personalizadas</a></li>
+			  <li role="presentation"><a href="opciones.html">Opciones disponibles</a></li>
+			  <li role="presentation"><a href="personalizacion.html">Personalización</a></li>
+			  <li role="presentation"><a href="validacion_servidor.html">Validación en servidor</a></li>
+			  <li role="presentation"><a href="atributos.html">Atributos disponibles</a></li>
+			  <li role="presentation"><a href="caracteres.html">Caracteres reservados</a></li>
+			  <li role="presentation"><a href="etiquetas.html">Referencia de etiquetas</a></li>
+			  <li role="presentation"><a href="demo.html">Demo</a></li>
+			</ul>
+		</div>
+		<div class="col-xs-6 col-sm-8 col-md-8">
+			<h3><b>Formas de utilizar el plugin</b></h3><br>
+			<ul>
+	      		<li><b>Usar el validador en el evento submit:</b>
+	      			<pre>
+	    				<code>
+//por defecto el modo es "submit"
+$('#form').djValidator();
+//de forma explicita:
+$('#form').djValidator({mode:'submit'});
+						</code>
+	    			</pre>
+	    			<p>Cuando se lanza el evento submit(click en el botón de envío), se realizará la validación completa y se
+	    			detendrá el envío en caso de haber campos no válidos y realizará el envío automático cuando todo es correcto.</p>
+ 					<p>La validación campo por campo está habilitada por defecto (blur).</p>
+ 					<p>En este modo se puede ejecutar el plugin sobre uno o varios formularios a la vez.</p><br>
+	      		</li>
+	      		<li><b>Usar el validador como función:</b>
+	      			<pre>
+	    				<code>
+var resp=$(“#my-form”).djValidator({mode:”function”});
+						</code>
+	    			</pre>
+	    			<p>En modo <b>function</b> el validador se comporta como función e inmediatamente retorna true o false, 
+	    			se puede usar cuando el formulario se envía vía código (ajax):
+	    			</p>
+	    			<pre>
+	    				<code>
+if(resp==true){sendForm(“#my-form”);}
+						</code>
+	    			</pre>
+	    			<p><b>La función devuelve null</b> al usar el validador ajax, en ese caso debe incluir su lógica 
+					dentro de la propiedad success del plugin (vea <a href="validacion_servidor.html">validación en el servidor</a>
+					 para más detalle):</p>
+	    			<pre>
+	    				<code>
+$(“#my-form”).djValidator(
+	mode:”function”,
+	success: function($form){
+				sendForm($form);
+			}
+	);
+						</code>
+	    			</pre>
+	    			<p>Este modo ejecuta el plugin sobre un solo formulario, lanzando un error en caso contrario.</p><br>
+	      		</li>
+	      		<li><b>Ejecutar una función cuando el formulario es válido:</b>
+	      		<p>La propiedad success recibe la función que se ejecutará al finalizar la validación de forma correcta cuando el modo es <b>submit</b> o se usa el validador <b>ajax</b> en modo <b>function</b>:</p>
+	      			<pre>
+	    				<code>
+$('#submit_btn').click(function(){
+	var resp=$('#my-form').djValidator({
+	mode:'submit',
+	success:
+			function(){
+				alert('validacion finalizada');
+			}
+	});
+});
+						</code>
+	    			</pre>
+	    			<p>La función por defecto es <code>function($form){return true;}</code></p>
+	    			<p>En caso de validación en el servidor es obligatorio declarar esta función</p><br>
+	      		</li>
+	      		<li><b>Validación campo por campo</b><br>
+	    			<p><b>Cuando se usa el modo submit:</b><code>$(“#my-form”).djValidator({blur:true});</code></p>
+	    			<p>En este modo el valor por defecto es true, en caso de colocar false la 
+	    			validación se realiza solo cuando se lanza el evento submit(click en el botón de envío).</p>
+	    			<p><b>Cuando se usa el modo function:</b><code>$(“#my-form”).djValidator({mode:”blur”});</code></p>
+	    			<p>Esta función se debe ejecutar antes de: <code>$(“#my-form”).djValidator({mode:”function”});</code></p>
+					<p>Si no se ejecuta el modo <b>blur</b>, la validación solo se realiza al ejecutar la función.</p><br>
+	      		</li>
+	      		<li><b>Validar un solo campo:</b>
+	      			<pre>
+	    				<code>
+var resp=$(“#my-input”).djValidator();
+//de forma explícita:
+var resp=$(“#my-input”).djValidator({mode:”submit”});
+						</code>
+	    			</pre>
+	    			<p>En modo <b>submit</b> se puede también ejecutar el plugin sobre un solo campo, 
+	    			en este caso se ejecuta igual que el modo <b>function</b> devolviendo true o false.</p><br>
+	      		</li>
+	      		<li><b>Limpiar los mensajes de validación y la decoración</b>
+	      			<pre>
+	    				<code>
+$(“#my-form”).djValidator({mode:”clean”});
+						</code>
+	    			</pre>
+	    			<p>Al ejecutar el plugin en este modo, se realiza inmediatamente la limpieza de 
+	    			todos los mensajes de validación y se reestablece el color de los bordes.</p><br>
+	      		</li>
+	      		<li><b>Aplicar múltiples validaciones a un campo</b>
+	      		<p>Se pueden utilizar varios validadores en un mismo campo, usando el operador <b>“&”</b> para encadenarlos</p>
+	      			<pre>
+	    				<code>
+&lt;input type="text" data-dj-validator="atext,3,12&word,3,12"&gt;
+						</code>
+	    			</pre>
+	    			<p>Las validaciones se aplican en orden, pero el resultado final siempre será el mismo.</p><br>
+	      		</li>
+	      	</ul>
+	      		
+			
+	
+	  </div>
+	</div>
+	 <!-- Footer -->
+	<footer class="navbar">
+		<hr>
+	  <!-- Copyright -->
+	  <div class="footer-copyright text-center py-3">© 2020 Copyright:
+	    <a href="mailto:esneyderg357@gmail.com"> David Esneyder Jerez Garnica</a>
+	  </div>
+	  <!-- Copyright -->
+	
+	</footer>
+	<!-- Footer -->
+</body>
+</html>

@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>DjValidator</title>
+	<link rel="stylesheet" href="../../lib/bootstrap/bootstrap.min.css">
+</head>
+<body>
+	<nav class="navbar navbar-default">
+	  <div class="container-fluid">
+	    <!-- Brand and toggle get grouped for better mobile display -->
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	      <a class="navbar-brand" href="#">DjValidator</a>
+	    </div>
+	
+	    <!-- Collect the nav links, forms, and other content for toggling -->
+	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	      <ul class="nav navbar-nav">
+	        <li class="active"><a href="index.html">v1</a></li>
+	        <li><a href="../../v2/en/index.html">version 2 <span class="sr-only">(current)</span></a></li>
+	      </ul>
+	      <ul class="nav navbar-nav navbar-right">
+	        <li class="active"><a href="index.html">English</a></li>
+	        <li><a href="../es/index.html">Español</a></li>
+	      </ul>
+	    </div><!-- /.navbar-collapse -->
+	  </div><!-- /.container-fluid -->
+	</nav>
+	
+	<div class="row">
+		<div class="col-xs-6 col-sm-4 col-md-3">
+			<ul class="nav nav-pills nav-stacked">
+			  <li role="presentation"><a href="index.html">Get started</a></li>
+			  <li role="presentation" class="active"><a href="validators.html">Validations available</a></li>
+			  <li role="presentation"><a href="custom_validation.html">Custom validations</a></li>
+			  <li role="presentation"><a href="personalization.html">Personalization</a></li>
+			  <li role="presentation"><a href="attributes.html">Attributes Available</a></li>
+			  <li role="presentation"><a href="characters.html">Reserved characters</a></li>
+			  <li role="presentation"><a href="labels.html">Label Reference</a></li>
+			</ul>
+		</div>
+		<div class="col-xs-6 col-sm-8 col-md-8">
+			<h3>Query only page (VERSION 1)</h3>
+			<h4><a href="../../v2/en/index.html">Please use version 2</a></h4>
+			<h3><b>Validations available</b></h3><br>
+			<p>The plugin has the following built-in validation rules, which must be used within <b>data-dj-validator</b> attribute:</p><br>
+			
+			<h4><b>Required field</b></h4>
+			<p>The <strong>“required”</strong> attribute of HTML5 is used to verify that the field is not empty or contains only spaces:</p>
+			<code>&lt;input type="text" required=”required”/&gt;</code>
+			<br><br>
+			<h4><b>Validate texts:</b></h4>
+			<table class="table table-bordered table-striped">
+			    <tbody><tr class="text-center">
+			      <td><p><strong>VALIDATION</strong></p></td>
+			      <td><p><strong>KEY</strong></p></td>
+			      <td><p><strong>PARAMETERS</strong></p></td>
+			      <td><p><strong>DESCRIPTION</strong></p></td>
+			      <td><p><strong>EXAMPLES</strong></p></td>
+			    </tr>
+			    <tr>
+			      <td><p>Any text</p></td>
+			      <td nowrap=""><p>text, <strong>[min]</strong> , <strong>[max]</strong></p></td>
+			      <td><p><strong>min</strong> : minimum characters allowed. <br>
+			        <strong>max</strong> : maximum characters allowed.</p></td>
+			      <td><p>Accept any character, validating only length of text. The maximum size can be omitted (*).</p></td>
+			      <td nowrap=""><p><code>
+			      		data-dj-validator="text,3,12"<br>
+			        	data-dj-validator="text,3,*"</code></p></td>
+			    </tr>
+			    <tr>
+			      <td><p>Alphabetic text</p></td>
+			      <td nowrap=""><p>atext, <strong>[min]</strong> , <strong>[max]</strong></p></td>
+			      <td><p><strong>min</strong> : minimum characters allowed. <br>
+			        <strong>max</strong> : maximum characters allowed.</p></td>
+			      <td><p>Accepts alphabetic characters in upper and lower case, including spaces, the letter ñ and accented characters (á, é, í, ó, ú, ç, ü), also validating length of text. The maximum size can be omitted (*).</p></td>
+			      <td nowrap=""><code>
+			      		data-dj-validator="atext,3,12"<br>
+			        	data-dj-validator="atext,3,*"</code></td>
+			    </tr>
+			    <tr>
+			      <td><p>Alphabetical text and digits</p></td>
+			      <td nowrap=""><p>antext, <strong>[min]</strong> , <strong>[max]</strong></p></td>
+			      <td><p><strong>min</strong> : minimum characters allowed. <br>
+			        <strong>max</strong> : maximum characters allowed.</p></td>
+			      <td><p>Accept upper and lower case alphabetic digits and characters, including spaces, the letter ñ and the accented characters (á, é, í, ó, ú, ç, ü), also validating length of text. The maximum size can be omitted (*).</p></td>
+			      <td nowrap=""><code>
+			      	data-dj-validator="antext,3,12"<br>
+			        data-dj-validator="antext,3,*"</code></td>
+			    </tr>
+			    <tr>
+			      <td><p>Word (text without spaces)</p></td>
+			      <td nowrap=""><p>word, <strong>[min]</strong> , <strong>[max]</strong></p></td>
+			      <td><p><strong>min</strong> : minimum characters allowed. <br>
+			        <strong>max</strong> : maximum characters allowed.</p></td>
+			      <td><p>Accept any character except spaces, also validating length of text. The maximum size can be omitted (*).</p></td>
+			      <td nowrap=""><code>
+			      	data-dj-validator="word,4,8"<br>
+			        data-dj-validator="word,4,*"</code></td>
+			    </tr>
+			    <tr>
+			      <td><p>Digits only</p></td>
+			      <td><p>dig, <strong>[min]</strong> , <strong>[max]</strong></p></td>
+			      <td><p><strong>min</strong> : minimum number of digits allowed. <br>
+			        <strong>max</strong> : maximum digits allowed.</p></td>
+			      <td><p>Accept a digit text, validating the length of the digit string. The maximum size can be omitted (*).</p></td>
+			      <td><code>
+			      	data-dj-validator="dig,4,8"<br>
+			        data-dj-validator="dig,4,*"</code></td>
+			    </tr>
+			</tbody></table><br>
+			<h4><b>Validate number fields</b></h4>
+			<table class="table table-bordered table-striped">
+			    <tbody><tr class="text-center">
+			      <td><p><strong>VALIDATION</strong></p></td>
+			      <td><p><strong>KEY</strong></p></td>
+			      <td><p><strong>PARAMETERS</strong></p></td>
+			      <td><p><strong>DESCRIPTION</strong></p></td>
+			      <td><p><strong>EXAMPLES</strong></p></td>
+			    </tr>
+			    <tr>
+			      <td><p>Integer numbers</p></td>
+			      <td nowrap=""><p>int, <strong>[min]</strong> , <strong>[max]</strong></p></td>
+			      <td><p><strong>min</strong> : minimum value allowed. <br>
+			        <strong>max</strong> : maximum value allowed.</p></td>
+			      <td><p>Accept only positive or negative integers (accept the "-" sign ), also validating the value of the whole number. The maximum and/or minimum value of the number can be omitted (*).</p></td>
+			      <td nowrap=""><code>data-dj-validator="int,1,*" <br>
+			        data-dj-validator="int,*,100" <br>
+			        data-dj-validator="int,*,*"<br>
+			        data-dj-validator="int,-100,-1"<code></code></code></td>
+			    </tr>
+			    <tr>
+			      <td><p>Real numbers</p></td>
+			      <td nowrap=""><p>num, <strong>[min]</strong> , <strong>[max]</strong></p></td>
+			      <td><p><strong>min</strong> : minimum value allowed. <br>
+			        <strong>max</strong> : maximum value allowed.</p></td>
+			      <td><p>Accept any type of real number, using the point (.) as decimal separator, accept "-" sign, also validating the number value. The maximum and/or minimum value can be omitted (*).</p></td>
+			      <td nowrap=""><code>data-dj-validator="num,1,*"<br>
+			        data-dj-validator="num,*,10.5"<br>
+			        data-dj-validator="num,*,*"<br>
+			        data-dj-validator="num,-1.5,1.5"<code></code></code></td>
+			    </tr>
+			</tbody></table><br>
+			<h4><b>Common validations</b></h4>
+			<table class="table table-bordered table-striped">
+			    <tbody><tr class="text-center">
+			      <td><p><strong>VALIDATION</strong></p></td>
+			      <td><p><strong>KEY</strong></p></td>
+			      <td><p><strong>PARAMETERS</strong></p></td>
+			      <td><p><strong>DESCRIPTION</strong></p></td>
+			      <td><p><strong>EXAMPLES</strong></p></td>
+			    </tr>
+			    <tr>
+			      <td><p>Email address</p></td>
+			      <td nowrap=""><p>email, <strong>[max]</strong></p></td>
+			      <td><p><strong>max</strong> : maximum characters allowed.</p></td>
+			      <td><p>Accept valid email addresses of any domain level, also validating maximum number of characters optionally(*).</p></td>
+			      <td nowrap=""><code>data-dj-validator="email,30"<br>
+			        data-dj-validator="email,*"<code></code></code></td>
+			    </tr>
+			    <tr>
+			      <td><p>Web address (url)</p></td>
+			      <td nowrap=""><p>url, <strong>[max]</strong></p></td>
+			      <td><p><strong>max</strong> : maximum characters allowed.</p></td>
+			      <td><p>Accepts URLs of the HTTP, HTTPS, FTP and FTPS protocols, also validating maximum number of characters optionally(*).</p></td>
+			      <td nowrap=""><code>data-dj-validator="url,50"<br>
+			        data-dj-validator="url,*"<code></code></code></td>
+			    </tr>
+			    <tr>
+			      <td><p>Phone number</p></td>
+			      <td nowrap=""><p>phone</p></td>
+			      <td><p><strong>NONE</strong></p></td>
+			      <td><p>Accepts phone numbers in the following formats: <br>
+			        +591 70229728 <br>
+			        70229728 <br>
+			        The "+" sign is optional, the separator can be "space" or "-", the code can have 2 to 3 digits and the number can have 5 to 12 digits.</p></td>
+			      <td nowrap=""><code>data-dj-validator="phone"<code></code></code></td>
+			    </tr>
+			    <tr>
+			      <td><p>IP adress</p></td>
+			      <td nowrap=""><p>Ip, <strong>[type]</strong></p></td>
+			      <td><p><strong>type</strong> (optional): ipv4 or ipv6</p></td>
+			      <td><p>Accepts IP addresses that can be v4 or v6 depending on the specified parameter, if not specified verify both.</p></td>
+			      <td nowrap=""><code>data-dj-validator="ip"<br>
+			        data-dj-validator="ip,v4"<br>
+			        data-dj-validator="ip,v6"</code></td>
+			    </tr>
+			</tbody></table><br>
+			<h4><b>Validate files</b></h4>
+			<table class="table table-bordered table-striped">
+			    <tbody><tr class="text-center">
+			      <td><p><strong>VALIDATION</strong></p></td>
+			      <td><p><strong>KEY</strong></p></td>
+			      <td><p><strong>PARAMETERS</strong></p></td>
+			      <td><p><strong>DESCRIPTION</strong></p></td>
+			      <td><p><strong>EXAMPLES</strong></p></td>
+			    </tr>
+			    <tr>
+			      <td><p>Validate files</p></td>
+			      <td><p>file, <strong>[min], [max], [min_size], [max_size], [type1 | type2 ..]</strong></p></td>
+			      <td><p><strong>min</strong> : minimum number of files to select. <br>
+			        <strong>max</strong> : maximum number of files to select <br>
+			        <strong>min_size</strong> : Minimum size of selected files (kb). <br>
+			        <strong>max_size</strong> : Maximum size of selected files (kb). <br>
+			        <strong>type1 | type2 ..</strong> : <strong>Mime</strong> types allowed.</p></td>
+			      <td><p>Validate files based on the javascript file API (if not available, validation is not performed), setting the minimum and maximum of selected files where maximum can be omitted (*), the maximum and minimum size in kb. For each file where both can be omitted (*) and finally validate the file type following the mime types specified as array (at least one is required).</p></td>
+			      <td><code>data-dj-validator="file,2,4,10,100,<br>image/jpeg|image/png|image/bmp"<br>
+			        data-dj-validator="file,1,*,1,1000,image/jpeg"<br>
+			        data-dj-validator="file,1,3,*,*,image/jpeg|image/png"</code></td>
+			    </tr>
+			    <tr>
+			      <td><p>Validate file extensions</p></td>
+			      <td><p>efile, <strong>[e1 | e2 | e3 ..]</strong></p></td>
+			      <td><p><strong>e1 | e2 | e3 ..</strong> : File extensions allowed<u></u></p></td>
+			      <td><p>Validate only the file extension of the selected file within the list of allowed extensions (at least one is required), it can be used more easily and when javascript file API is not available.</p></td>
+			      <td><code>data-dj-validator="efile,jpg|jpeg|png|bmp"<br>
+			        data-dj-validator="efile,doc|docx|pdf"</code></td>
+			    </tr>
+			</tbody></table><br>
+			<h4><b>Validation of other form controls</b></h4>
+			<table class="table table-bordered table-striped">
+			    <tbody><tr class="text-center">
+			      <td><p><strong>VALIDATION</strong></p></td>
+			      <td><p><strong>KEY</strong></p></td>
+			      <td><p><strong>PARAMETERS</strong></p></td>
+			      <td><p><strong>DESCRIPTION</strong></p></td>
+			      <td><p><strong>EXAMPLES</strong></p></td>
+			    </tr>
+			    <tr>
+			      <td><p>Select multiple</p></td>
+			      <td><p>multi, <strong>[min], [max]</strong></p></td>
+			      <td><p><strong>min:</strong> minimum of selected options. <br>
+			        <strong>max</strong> : maximum of selected options.</p></td>
+			      <td><p>Validate the number of options selected from a multiple select, the maximum can be omitted (*).</p>
+			      <p>The required attribute is valid to verify that an option with value has been selected.</p></td>
+			      <td><code>data-dj-validator="multi,2,4"<br>
+			        data-dj-validator="multi,1,*"</code></td>
+			    </tr>
+			    <tr>
+			      <td><p>Radio buttons</p></td>
+			      <td><p>radio</p></td>
+			      <td><p><strong>NONE</strong></p></td>
+			      <td><p>Validate the required selection of a radio button of a group (with the same name), must be placed only a one radio of group (recommended in the last)</p></td>
+			      <td><code>data-dj-validator="radio"</code></td>
+			    </tr>
+			    <tr>
+			      <td><p>Checkbox</p></td>
+			      <td><p>check, <strong>[group], [min], [max], [label]</strong></p></td>
+			      <td><p><strong>group</strong> (optional): Name of the group of checkbox (attribute data-dj-validator-group). <br>
+			        <strong>min</strong> (optional): minimum of checked checkbox of the group. <br>
+			        <strong>max</strong> (optional): maximum of checked checkbox of the group. <br>
+			        <strong>label</strong> (optional): <br>
+			        checkbox group label.</p></td>
+			      <td><p>Without parameters it validates that the checkbox is checked (required). <br>
+			        Specifying all parameters validates checking of a defined group of checkbox (all checks with the same data-dj-validator-group attribute), the maximum of options can be omitted (*), the [label] parameter is the group name label for validation message.</p></td>
+			      <td><code>data-dj-validator="check"<br>
+			        data-dj-validator="check,group,1,2,options"<br>
+			        data-dj-validator="check,group,2,*,options"</code></td>
+			    </tr>
+			</tbody></table><br>
+			<h4><b>Validate related fields</b></h4>
+			<table class="table table-bordered table-striped">
+			    <tbody><tr class="text-center">
+			      <td><p><strong>VALIDATION</strong></p></td>
+			      <td><p><strong>KEY</strong></p></td>
+			      <td><p><strong>PARAMETERS</strong></p></td>
+			      <td><p><strong>DESCRIPTION</strong></p></td>
+			      <td><p><strong>EXAMPLES</strong></p></td>
+			    </tr>
+			    <tr>
+			      <td><p>Equal fields</p></td>
+			      <td nowrap=""><p>equal, <strong>[id], [label]</strong></p></td>
+			      <td><p><strong>id</strong> : id of the input to compare. <br>
+			      <strong>Label</strong> : Display label.</p></td>
+			      <td><p>Validate that the value of field is equal to that specified, the [id] must be of field with which you want to compare.</p>
+			      The tag is used to label the other field.</td>
+			      <td><code>data-dj-validator="equal,a,input a"</code><br>
+			        where "a" is the other field "id"</td>
+			    </tr>
+			    <tr>
+			      <td><p>Different fields</p></td>
+			      <td nowrap=""><p>nequal, <strong>[id], [label]</strong></p></td>
+			      <td><p><strong>id</strong> : id of the input to compare. <br>
+			      <strong>Label</strong> : Display label</p></td>
+			      <td><p>Validate that the value of the field is different from the specified, the [id] must be of field with which you want to compare.</p>
+			      The tag is used to label the other field.</td>
+			      <td><code>data-dj-validator="nequal,a,input a"</code><br>
+			        where "a" is the other field "id"</td>
+			    </tr>
+			    <tr>
+			      <td><p>Optional fields</p></td>
+			      <td nowrap=""><p>or, <strong>[group], [label]</strong></p></td>
+			      <td><p><strong>group</strong> : Name of group (fields with the same data-dj-validator-group attribute). <br>
+			        <strong>Label</strong> : Display label</p></td>
+			      <td><p>Validate that at least one field of the group is not empty (required group), the [label] parameter is the label of the group to display message. <br>
+			       The <b>"or"</b> validator must be placed in a only field of group(recommended in the last)</p></td>
+			      <td><code>data-dj-validator="or,optionals,optional inputs"</code><br>
+			        where each input group is: data-dj-validator-group = "optionals"</td>
+			    </tr>
+			</tbody></table><br>		
+			<h4><b>Custom validations</b></h4>
+			<table class="table table-bordered table-striped">
+			    <tbody><tr class="text-center">
+			      <td><p><strong>VALIDATION</strong></p></td>
+			      <td><p><strong>KEY</strong></p></td>
+			      <td><p><strong>PARAMETERS</strong></p></td>
+			      <td><p><strong>DESCRIPTION</strong></p></td>
+			      <td><p><strong>EXAMPLES</strong></p></td>
+			    </tr>
+			    <tr>
+			      <td><p>Validate a regular expression</p></td>
+			      <td><p>regexp, <strong>[regular_expresion], [flags]</strong></p></td>
+			      <td><p><strong>regular_expresion</strong> : regular expression to use. <br>
+			        <strong>Flags</strong> (optional): flags of the regular expression.</p></td>
+			      <td><p>Accept field value according to specified regular expression and flags(specified separately), must be in string format (for use with the RegExp object constructor). <br>
+			        If the regular expression has commas (reserved operator), they must be replaced by the character: <b>°</b> , to avoid errors <strong>(v1.1.0)</strong> .</p></td>
+			      <td><code>data-dj-validator="regexp,^[aeiou]+$,i"<br>
+			        data-dj-validator="regexp,^[aeiou]{3°5}$,i"</code><br>
+			        <strong>(v1.1.0)</strong></td>
+			    </tr>
+			    <tr>
+			      <td><p>Call an own validation function</p></td>
+			      <td><p>call, <strong>[function_name]</strong></p></td>
+			      <td><p><strong>function_name</strong> : name of the validating function.</p></td>
+			      <td><p>Call a user function to perform the validation, this user function receives the field to be validated ($obj) and must return true or false.</p></td>
+			      <td><code>data-dj-validator="call,isUpperCase"</code><br>
+			        where "isUpperCase" is the user's function</td>
+			    </tr>
+			</tbody></table>
+			See the <a href="custom_validation.html">custom validations</a> section for more details.<br><br>		
+	  </div>
+	</div>
+	 <!-- Footer -->
+	<footer class="navbar">
+		<hr>
+	  <!-- Copyright -->
+	  <div class="footer-copyright text-center py-3">© 2018 Copyright:
+	     <a href="mailto:esneyderg357@gmail.com">David Esneyder Jerez Garnica</a>
+	  </div>
+	  <!-- Copyright -->
+	
+	</footer>
+</body>
+</html>

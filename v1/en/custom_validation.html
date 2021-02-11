@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>DjValidator</title>
+	<link rel="stylesheet" href="../../lib/bootstrap/bootstrap.min.css">
+</head>
+<body>
+	<nav class="navbar navbar-default">
+	  <div class="container-fluid">
+	    <!-- Brand and toggle get grouped for better mobile display -->
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	      <a class="navbar-brand" href="#">DjValidator</a>
+	    </div>
+	
+	    <!-- Collect the nav links, forms, and other content for toggling -->
+	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	      <ul class="nav navbar-nav">
+	        <li class="active"><a href="index.html">v1</a></li>
+	        <li><a href="../../v2/en/index.html">version 2 <span class="sr-only">(current)</span></a></li>
+	      </ul>
+	      <ul class="nav navbar-nav navbar-right">
+	        <li class="active"><a href="index.html">English</a></li>
+	        <li><a href="../es/index.html">Español</a></li>
+	      </ul>
+	    </div><!-- /.navbar-collapse -->
+	  </div><!-- /.container-fluid -->
+	</nav>
+	
+	<div class="row">
+		<div class="col-xs-6 col-sm-4 col-md-3">
+			<ul class="nav nav-pills nav-stacked">
+			  <li role="presentation"><a href="index.html">Get started</a></li>
+			  <li role="presentation"><a href="validators.html">Validations available</a></li>
+			  <li role="presentation" class="active"><a href="custom_validation.html">Custom validations</a></li>
+			  <li role="presentation"><a href="personalization.html">Personalization</a></li>
+			  <li role="presentation"><a href="attributes.html">Attributes Available</a></li>
+			  <li role="presentation"><a href="characters.html">Reserved characters</a></li>
+			  <li role="presentation"><a href="labels.html">Label Reference</a></li>
+			</ul>
+		</div>
+		<div class="col-xs-6 col-sm-8 col-md-8">
+			<h3>Query only page (VERSION 1)</h3>
+			<h4><a href="../../v2/en/index.html">Please use version 2</a></h4>
+			<h3><b>Custom validations</b></h3><br>
+			<p>You can perform custom validations in 3 different ways, depending on your needs:</p>
+			<ul>
+	      		<li><b>Using the "regexp" key:</b>
+	      		<p>The validation key <b>“regexp” can be used</b> to perform custom validations based on a specified regular expression and the flags (specified separately) must be in string format (for use with RegExp object constructor):
+	      		</p>
+	      			<pre>	    				<code>
+&lt;input name="user" required data-dj-validator="regexp,^[aeiou]+$,i"&gt;
+						</code>
+	    			</pre>
+	    			<p>If the regular expression has commas ( <a href="characters.html">reserved character</a> ), they must be replaced by the <b>°</b> character (degree) to avoid errors:</p>
+	      			<pre>	    				<code>
+&lt;input name="user" required data-dj-validator="regexp,^[aeiou]{3°5}$,i"&gt;
+						</code>
+	    			</pre>	    			
+	    			<br>
+	      		</li>
+	      		<li><b>Using a proper function:</b>
+	      			<p>The <b>call</b> validation key allows validation by executing a user defined function, this function receives the field to be validated and must return true or false:
+	    			</p>
+	      			<pre>	    				<code>
+&lt;input name="textinput" type="text" data-dj-validator="call,isUpperCase"&gt;
+						</code>
+	    			</pre>
+	    			<p>Being the user function:</p>
+	    			<pre>	    				<code>
+function isUpperCase($field){
+	value=$field.val();
+	if(value==value.toUpperCase())return true;
+	else return false;
+}
+						</code>
+	    			</pre><br>
+	      		</li>
+	      		<li><b>Adding a new validation key to plugin</b>
+	      		<p>The global <b>addDjvalidator</b> function allows add a new custom validation key within the plugin:</p>
+	      			<pre>	    				<code>
+$.addDjvalidator(key_name,message,callback);
+						</code>
+	    			</pre>
+	    			<p>Where:</p>
+					<p><b>key_name:</b> Is the validation key that will be created</p>
+					<p><b>message:</b> Is the validation message to be used</p>
+					<p><b>callback:</b> Validation function to be executed, receives 2 parameters, the field to be validated <b>"field"</b> and the parameters <b>"params"</b> , these parameters are an array that starts at 1, since 0 is the validation key.</p>
+					<p>Example:</p>
+					<p>creating the <b>“even”</b> validator, which will validate if the number entered is even, also with a parameter so that it does not exceed a maximum value:</p>
+	      			<pre>	    				<code>
+$.fn.djValidator.add('even','only even numbers.',
+			function($field,params){
+				value=parseInt($field.val());
+				max= params[1];
+				if(value%2!=1||value&gt;max)return false;
+				else return true;
+			}
+);
+						</code>
+	    			</pre>
+	    			<p>Then it can be used like any other plugin key:</p>
+	    			<pre>	    				<code>
+&lt;input type="text" data-dj-validator="even,10" required&gt;
+						</code>
+	    			</pre>
+	      		</li>
+	      	</ul>
+	  </div>
+	</div>
+	 <!-- Footer -->
+	<footer class="navbar">
+		<hr>
+	  <!-- Copyright -->
+	  <div class="footer-copyright text-center py-3">© 2018 Copyright:
+	     <a href="mailto:esneyderg357@gmail.com">David Esneyder Jerez Garnica</a>
+	  </div>
+	  <!-- Copyright -->
+	
+		</footer>
+</body>
+</html>

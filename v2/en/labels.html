@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>DjValidator</title>
+	<link rel="stylesheet" href="../../lib/bootstrap/bootstrap.min.css">
+</head>
+<body>
+	<nav class="navbar navbar-default">
+	  <div class="container-fluid">
+	    <!-- Brand and toggle get grouped for better mobile display -->
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	      <a class="navbar-brand" href="#">DjValidator</a>
+	    </div>
+	
+	    <!-- Collect the nav links, forms, and other content for toggling -->
+	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	      <ul class="nav navbar-nav">
+	        <li><a href="../../v1/en/index.html">v1</a></li>
+	        <li class="active"><a href="index.html">version 2 <span class="sr-only">(current)</span></a></li>
+	      </ul>
+	      <ul class="nav navbar-nav navbar-right">
+	        <li class="active"><a href="index.html">English</a></li>
+	        <li><a href="../es/index.html">Español</a></li>
+	      </ul>
+	    </div><!-- /.navbar-collapse -->
+	  </div><!-- /.container-fluid -->
+	</nav>
+	
+	<div class="row">
+		<div class="col-xs-6 col-sm-4 col-md-3">
+			<ul class="nav nav-pills nav-stacked">
+			  <li role="presentation"><a href="index.html">Get started</a></li>
+			  <li role="presentation"><a href="how_to_use.html">How to use</a></li>
+			  <li role="presentation"><a href="validators.html">Validations available</a></li>
+			  <li role="presentation"><a href="custom_validation.html">Custom validations</a></li>
+			  <li role="presentation"><a href="options.html">Available options</a></li>
+			  <li role="presentation"><a href="personalization.html">Personalization</a></li>
+			  <li role="presentation"><a href="server_validation.html">Server validation</a></li>
+			  <li role="presentation"><a href="attributes.html">Attributes Available</a></li>
+			  <li role="presentation"><a href="characters.html">Reserved characters</a></li>
+			  <li role="presentation" class="active"><a href="labels.html">Label Reference</a></li>
+			  <li role="presentation"><a href="demo.html">Demo</a></li>
+			</ul>
+		</div>
+		<div class="col-xs-6 col-sm-8 col-md-8">
+			<h3><b>Validator label reference</b></h3><br>
+			<p>Following labels contain the validation messages for each key, these can be changed at any time:</p>			
+	      	<pre>	    		<code>
+$.setDjValidatorLabels({
+		required:'Campo requerido.',
+		word_min:'Por lo menos $1 caracteres sin espacios.',
+		word_between:'Entre $1 y $2 caracteres sin espacios.',
+		atext_min:'Por lo menos $1 caracteres alfabéticos.',
+		......
+});
+				</code>
+	    	</pre>			
+			<table class="table table-bordered table-striped">
+			    <tbody><tr class="text-center">
+			      <td><strong>Label</strong></td>
+			      <td><strong>Description</strong></td>
+			    </tr>
+			    <tr>
+			    	<td><p>required</p></td>
+			    <td><p>Required</p></td>
+			  	</tr>
+			  	<tr>
+			    <td><p>word_min</p></td>
+			    <td><p>Word, when the maximum is omitted</p></td>
+				  </tr>
+				  <tr>
+				    <td><p>word_between</p></td>
+				    <td><p>Word, without omissions</p></td>
+				  </tr>
+				  <tr>
+				    <td><p>atext_min</p></td>
+				    <td><p>atext, when the maximum is omitted</p></td>
+				  </tr>
+				  <tr>
+				    <td><p>atext_between</p></td>
+				    <td><p>atext, without omissions</p></td>
+				  </tr>
+				  <tr>
+				    <td><p>antext_min</p></td>
+				    <td><p>antext, when the maximum is omitted</p></td>
+				  </tr>
+				  <tr>
+				    <td><p>antext_between</p></td>
+				    <td><p>antext, without omissions</p></td>
+				  </tr>
+				  <tr>
+				    <td><p>text_min</p></td>
+				    <td><p>text, when the maximum is omitted</p></td>
+				  </tr>
+				  <tr>
+				    <td><p>text_between</p></td>
+				    <td><p>text, without omissions</p></td>
+				  </tr>
+				  <tr>
+				    <td><p>int_invalid</p></td>
+				    <td><p>int, when it is not a valid integer</p></td>
+				  </tr>
+				  <tr>
+				    <td><p>int_min</p></td>
+				    <td><p>int, when the maximum is omitted</p></td>
+				  </tr>
+				  <tr>
+				    <td><p>int_max</p></td>
+				    <td><p>int, when the minimum is omitted</p></td>
+				  </tr>
+				  <tr>
+				    <td><p>int_between</p></td>
+				    <td><p>int, without omissions</p></td>
+				  </tr>
+				  <tr>
+				    <td><p>num_invalid</p></td>
+				    <td><p>num, when it is not a valid number</p></td>
+				  </tr>
+				  <tr>
+				    <td><p>num_min</p></td>
+				    <td><p>num, when the maximum is omitted</p></td>
+				  </tr>
+				  <tr>
+				    <td><p>num_max</p></td>
+				    <td><p>num, when the minimum is omitted</p></td>
+				  </tr>
+				  <tr>
+				    <td><p>num_between</p></td>
+				    <td><p>num, without omissions</p></td>
+				  </tr>
+				  <tr>
+				    <td><p>dig_min</p></td>
+				    <td><p>dig, when the maximum is omitted</p></td>
+				  </tr>
+				  <tr>
+				    <td><p>dig_between</p></td>
+				    <td><p>dig, without omissions</p></td>
+				  </tr>
+				  <tr>
+				    <td><p>file_min</p></td>
+				    <td><p>file, when the maximum amount is omitted</p></td>
+				  </tr>
+				  <tr>
+				    <td><p>file_between</p></td>
+				    <td><p>file, without skipping quantities</p></td>
+				  </tr>
+				  <tr>
+				    <td><p>file_format</p></td>
+				    <td><p>file, when it is not a valid format</p></td>
+				  </tr>
+				  <tr>
+				    <td><p>file_min_size</p></td>
+				    <td><p>file, when the minimum size is specified</p></td>
+				  </tr>
+				  <tr>
+				    <td><p>file_max_size</p></td>
+				    <td><p>file, when the maximum size is specified</p></td>
+				  </tr>
+				  <tr>
+				    <td><p>file_ext</p></td>
+				    <td><p>efile, when it is not a valid extension</p></td>
+				  </tr>
+				  <tr>
+				    <td><p>e-mail</p></td>
+				    <td><p>email, when the maximum is omitted</p></td>
+				  </tr>
+				  <tr>
+				    <td><p>email_max</p></td>
+				    <td><p>email, without omissions</p></td>
+				  </tr>
+				  <tr>
+				    <td><p>phone</p></td>
+				    <td><p>phone, when it is not valid</p></td>
+				  </tr>
+				  <tr>
+				    <td><p>url</p></td>
+				    <td><p>url, when the maximum is omitted</p></td>
+				  </tr>
+				  <tr>
+				    <td><p>url_max</p></td>
+				    <td><p>url, without omissions</p></td>
+				  </tr>
+				  <tr>
+				    <td><p>ip</p></td>
+				    <td><p>ip, when it is not a valid IP</p></td>
+				  </tr>
+				  <tr>
+				    <td><p>regexp</p></td>
+				    <td><p>regexp, when it does not meet the expression</p></td>
+				  </tr>
+				  <tr>
+				    <td><p>or</p></td>
+				    <td><p>or, when no field is full</p></td>
+				  </tr>
+				  <tr>
+				    <td><p>equal</p></td>
+				    <td><p>equal, when the fields are different</p></td>
+				  </tr>
+				  <tr>
+				    <td><p>not_equal</p></td>
+				    <td><p>nequal, when the fields are equal</p></td>
+				  </tr>
+				  <tr>
+				    <td><p>multi_min</p></td>
+				    <td><p>multi, when the maximum is omitted</p></td>
+				  </tr>
+				  <tr>
+				    <td><p>multi_between</p></td>
+				    <td><p>multi, without omissions</p></td>
+				  </tr>
+				  <tr>
+				    <td><p>call</p></td>
+				    <td><p>call, call to a user function</p></td>
+				  </tr>
+				  <tr>
+				    <td><p>radio</p></td>
+				    <td><p>radio, validate radios</p></td>
+				  </tr>
+				  <tr>
+				    <td><p>check_single</p></td>
+				    <td><p>check, without parameters</p></td>
+				  </tr>
+				  <tr>
+				    <td><p>check_multi_min</p></td>
+				    <td><p>check, when the maximum is omitted</p></td>
+				  </tr>
+				  <tr>
+				    <td><p>check_multi_between</p></td>
+				    <td><p>check, without omissions</p></td>
+				  </tr>
+				  <tr>
+				    <td><p>ajax</p></td>
+				    <td><p>ajax, server validation</p></td>
+				  </tr>
+				  <tr>
+				    <td><p>ajax_validating</p></td>
+				    <td><p>ajax, waiting for server response</p></td>
+				  </tr>
+				  <tr>
+				    <td><p>ajax_fail</p></td>
+				    <td><p>ajax, when server validation fails</p></td>
+				  </tr>
+			  </tbody></table>
+	  </div>
+	</div>
+	 <!-- Footer -->
+	<footer class="navbar">
+		<hr>
+	  <!-- Copyright -->
+	  <div class="footer-copyright text-center py-3">© 2020 Copyright:
+	     <a href="mailto:esneyderg357@gmail.com">David Esneyder Jerez Garnica</a>
+	  </div>
+	  <!-- Copyright -->
+	
+		</footer>
+</body>
+</html>

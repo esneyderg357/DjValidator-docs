@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>DjValidator</title>
+	<link rel="stylesheet" href="../../lib/bootstrap/bootstrap.min.css">
+</head>
+<body>
+	<nav class="navbar navbar-default">
+	  <div class="container-fluid">
+	    <!-- Brand and toggle get grouped for better mobile display -->
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	      <a class="navbar-brand" href="#">DjValidator</a>
+	    </div>
+	
+	    <!-- Collect the nav links, forms, and other content for toggling -->
+	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	      <ul class="nav navbar-nav">
+	        <li><a href="../../v1/en/index.html">v1</a></li>
+	        <li class="active"><a href="index.html">version 2 <span class="sr-only">(current)</span></a></li>
+	      </ul>
+	      <ul class="nav navbar-nav navbar-right">
+	        <li class="active"><a href="index.html">English</a></li>
+	        <li><a href="../es/index.html">Español</a></li>
+	      </ul>
+	    </div><!-- /.navbar-collapse -->
+	  </div><!-- /.container-fluid -->
+	</nav>
+	
+	<div class="row">
+		<div class="col-xs-6 col-sm-4 col-md-3">
+			<ul class="nav nav-pills nav-stacked">
+			  <li role="presentation"><a href="index.html">Get started</a></li>
+			  <li role="presentation"><a href="how_to_use.html">How to use</a></li>
+			  <li role="presentation"><a href="validators.html">Validations available</a></li>
+			  <li role="presentation"><a href="custom_validation.html">Custom validations</a></li>
+			  <li role="presentation"><a href="options.html">Available options</a></li>
+			  <li role="presentation"><a href="personalization.html">Personalization</a></li>
+			  <li role="presentation"><a href="server_validation.html">Server validation</a></li>
+			  <li role="presentation" class="active"><a href="attributes.html">Attributes Available</a></li>
+			  <li role="presentation"><a href="characters.html">Reserved characters</a></li>
+			  <li role="presentation"><a href="labels.html">Label Reference</a></li>
+			  <li role="presentation"><a href="demo.html">Demo</a></li>
+			</ul>
+		</div>
+		<div class="col-xs-6 col-sm-8 col-md-8">
+			<h3><b>Available Attributes</b></h3><br>
+			<p>The following HTML attributes available in the plugin can be used:</p>
+	      	<pre>	    		<code>
+&lt;input name="user" required data-dj-validator="word,4,20" data-dj-validator-msg="Please fill the user!"&gt;
+				</code>
+	    	</pre>			
+			
+			<table class="table table-bordered table-striped">
+			    <tbody><tr class="text-center">
+			      <td><strong>Attribute</strong></td>
+			      <td><strong>Description</strong></td>
+			      <td><strong>Example</strong></td>
+			    </tr>
+			    <tr>
+			      <td nowrap=""><p>data-dj-validator</p></td>
+			      <td><p>Add a validation to field using the specified key (see the validators reference), if the value is unknown it will generate an error. </p></td>
+			      <td nowrap=""><p>data-dj-validator = "text,3,12"</p></td>
+			    </tr>
+			    <tr>
+			      <td nowrap=""><p>required</p></td>
+			      <td><p>The standard <b>“required”</b> HTML5 attribute is recognized and validates the required fields.</p></td>
+			      <td nowrap=""><p>required = ”required”</p></td>
+			    </tr>
+			    <tr>
+			      <td nowrap=""><p>data-dj-validator-group</p></td>
+			      <td><p>Specify a group of related fields under the value of this attribute.</p></td>
+			      <td nowrap=""><p>data-dj-validator-group = "languages"</p></td>
+			    </tr>
+			    <tr>
+			      <td nowrap=""><p>data-dj-validator-msg</p></td>
+			      <td><p>Define a custom validation message for the field, replacing the default message.</p></td>
+			      <td nowrap=""><p>data-dj-validator-msg = "The name is not valid!"</p></td>
+			    </tr>
+			    <tr>
+			      <td nowrap=""><p>data-input-group</p></td>
+			      <td><p>Insert the message as a child of parent element of the field (insert after is default), it is used to correct the position of the message in fields composed of several elements. The value used is irrelevant.</p></td>
+			      <td nowrap=""><p>data-input-group = "group"</p></td>
+			    </tr>
+			  </tbody></table>
+	  </div>
+	</div>
+	 <!-- Footer -->
+	<footer class="navbar">
+		<hr>
+	  <!-- Copyright -->
+	  <div class="footer-copyright text-center py-3">© 2020 Copyright:
+	     <a href="mailto:esneyderg357@gmail.com">David Esneyder Jerez Garnica</a>
+	  </div>
+	  <!-- Copyright -->
+	
+		</footer>
+</body>
+</html>

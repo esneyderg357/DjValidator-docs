@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>DjValidator</title>
+	<link rel="stylesheet" href="../../lib/bootstrap/bootstrap.min.css">
+</head>
+<body>
+	<nav class="navbar navbar-default">
+	  <div class="container-fluid">
+	    <!-- Brand and toggle get grouped for better mobile display -->
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	      <a class="navbar-brand" href="#">DjValidator</a>
+	    </div>
+	
+	    <!-- Collect the nav links, forms, and other content for toggling -->
+	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	      <ul class="nav navbar-nav">
+	        <li class="active"><a href="index.html">v1</a></li>
+	        <li><a href="../../v2/en/index.html">version 2 <span class="sr-only">(current)</span></a></li>
+	      </ul>
+	      <ul class="nav navbar-nav navbar-right">
+	        <li class="active"><a href="index.html">English</a></li>
+	        <li><a href="../es/index.html">Español</a></li>
+	      </ul>
+	    </div><!-- /.navbar-collapse -->
+	  </div><!-- /.container-fluid -->
+	</nav>
+	
+	<div class="row">
+		<div class="col-xs-6 col-sm-4 col-md-3">
+			<ul class="nav nav-pills nav-stacked">
+			  <li role="presentation" class="active"><a href="index.html">Get started</a></li>
+			  <li role="presentation"><a href="validators.html">Validations available</a></li>
+			  <li role="presentation"><a href="custom_validation.html">Custom validations</a></li>
+			  <li role="presentation"><a href="personalization.html">Personalization</a></li>
+			  <li role="presentation"><a href="attributes.html">Attributes Available</a></li>
+			  <li role="presentation"><a href="characters.html">Reserved characters</a></li>
+			  <li role="presentation"><a href="labels.html">Label Reference</a></li>
+			</ul>
+		</div>
+		<div class="col-xs-6 col-sm-8 col-md-8">
+			<h3>Query only page (VERSION 1)</h3>
+			<h4><a href="../../v2/en/index.html">Please use version 2</a></h4>
+    		<p><strong>Basic Usage:</strong>
+	    </p><ol>
+	      <li><b>Add the jquery and djValidator scripts:</b>
+	      	<pre>	    		<code>
+&lt;script type="text/javascript" src="jquery.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="DjValidator.js"&gt;&lt;/script&gt;
+				</code>
+	    	</pre>
+	    	<p><a href="https://github.com/esneyderg357/DjValidator"><b>Download from repository</b></a></p>
+	    	<p>The plugin is also available on <a href="https://www.npmjs.com/package/djvalidator"><b>Npm</b></a> and <b>Bower</b> .</p>
+	    	<pre>	    		<code>
+npm i djvalidator
+				</code>
+	    	</pre><br>
+	      </li>
+	      <li><b>Place validation rules you need:</b>
+	      	<pre>	    		<code>
+&lt;input name="input1" type="text" data-dj-validator="atext,3,12" required&gt;
+				</code>
+	    	</pre>
+	    	<p>Add validation rule in form fields with the <b>data-dj-validator</b> attribute, use the <b>required</b> attribute when the field is required:</p><p>
+	    	</p><p>Show <a href="file:///C:/Users/PC/eclipse-workspace/dj-validator-page/WebContent/v1/es/validaciones.html">here</a> all available validators.</p> <br>
+	      </li>
+	      <li><b>Use the plugin in any of these modes:</b><br>
+	      <p><b>Submit:</b>Validation is executed in submit event, making automatic sending when
+form is valid, it also serves to validate fields, it is the default value:</p>
+	      	<pre>	    		<code>
+$('#form').djValidator();
+				</code>
+	    	</pre>	      	 
+	      <p><b>Callback:</b>Validation is executed in submit event, avoids sending and executes parameter function if it is valid:</p>
+	      	<pre>	    		<code>
+$('#form').djValidator('callback',function($form){
+				alert("Callback executed when the form is valid.");
+			});
+
+				</code>
+	    	</pre>
+	    	<p><b>Function:</b>Validation is executed immediately as a function, returns true or false depending on the result:</p>
+	      	<pre>	    		<code>
+var resp=$('#form').djValidator('validate');
+				</code>
+	    	</pre>
+	    	<p><b>Field:</b>Validation is done only on a field at the moment of executing the plugin, returns true or false according to the result:</p>
+	      	<pre>	    		<code>
+var resp=$('#input1').djValidator('field');
+				</code>
+	    	</pre>
+	    	<p><b>Clean(v1.1.0):</b>Delete all validation messages placed by the validator (cleaning):</p>
+	      	<pre>	    		<code>
+$('#form').djValidator('clean');
+				</code>
+	    	</pre>
+	      </li>
+	    </ol>
+	  </div>
+	</div>
+	 <!-- Footer -->
+	<footer class="navbar">
+		<hr>
+	  <!-- Copyright -->
+	  <div class="footer-copyright text-center py-3">© 2018 Copyright:
+	    <a href="mailto:esneyderg357@gmail.com"> David Esneyder Jerez Garnica</a>
+	  </div>
+	  <!-- Copyright -->
+	
+	</footer>
+	<!-- Footer -->
+
+	<script type="text/javascript" src="../../lib/jquery.min.js"></script>
+	<script type="text/javascript" src="../../lib/DjValidator.min.js"></script>
+	<script type="text/javascript">
+			$(document).ready(function(){
+				$('#validate').click(function(){
+					alert($('#form').djValidator({mode:'function'}));
+				});
+			});
+	</script>
+</body>
+</html>

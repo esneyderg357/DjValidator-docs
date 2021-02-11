@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>DjValidator</title>
+	<link rel="stylesheet" href="../../lib/bootstrap/bootstrap.min.css">
+</head>
+<body>
+	<nav class="navbar navbar-default">
+	  <div class="container-fluid">
+	    <!-- Brand and toggle get grouped for better mobile display -->
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	      <a class="navbar-brand" href="#">DjValidator</a>
+	    </div>
+	
+	    <!-- Collect the nav links, forms, and other content for toggling -->
+	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	      <ul class="nav navbar-nav">
+	        <li><a href="../../v1/es/index.html">v1</a></li>
+	        <li class="active"><a href="index.html">versión 2 <span class="sr-only">(current)</span></a></li>
+	        <li><a href="https://github.com/esneyderg357/DjValidator">Descarga</a></li>
+	      </ul>
+	      <ul class="nav navbar-nav navbar-right">
+	        <li><a href="../en/index.html">English</a></li>
+	        <li class="active"><a href="index.html">Español</a></li>
+	      </ul>
+	    </div><!-- /.navbar-collapse -->
+	  </div><!-- /.container-fluid -->
+	</nav>
+	
+	<div class="row">
+		<div class="col-xs-6 col-sm-4 col-md-3">
+			<ul class="nav nav-pills nav-stacked">
+			  <li role="presentation"><a href="index.html">Inicio</a></li>
+			  <li role="presentation"><a href="como_usar.html">Como usar el plugin</a></li>
+			  <li role="presentation"><a href="validaciones.html">Validaciones disponibles</a></li>
+			  <li role="presentation" class="active"><a href="validacion_personalizada.html">Validaciones personalizadas</a></li>
+			  <li role="presentation"><a href="opciones.html">Opciones disponibles</a></li>
+			  <li role="presentation"><a href="personalizacion.html">Personalización</a></li>
+			  <li role="presentation"><a href="validacion_servidor.html">Validación en servidor</a></li>
+			  <li role="presentation"><a href="atributos.html">Atributos disponibles</a></li>
+			  <li role="presentation"><a href="caracteres.html">Caracteres reservados</a></li>
+			  <li role="presentation"><a href="etiquetas.html">Referencia de etiquetas</a></li>
+			  <li role="presentation"><a href="demo.html">Demo</a></li>
+			</ul>
+		</div>
+		<div class="col-xs-6 col-sm-8 col-md-8">
+			<h3><b>Validaciones personalizadas</b></h3><br>
+			<p>Se puede realizar validaciones personalizadas de 3 formas distintas, dependiendo de sus necesidades:</p>
+			<ul>
+	      		<li><b>Usando la clave "regexp":</b>
+	      		<p>Se puede usar la clave de validación <b>“regexp”</b> para realizar validaciones personalizadas en base a una expresión regular 
+	      		especificada y las flags (se especifican por separado), deben estar en forma de cadenas (para usarse con el constructor del objeto RegExp):
+	      		</p>
+	      			<pre>
+	    				<code>
+&lt;input name="user" required data-dj-validator="regexp,^[aeiou]+$,i"&gt;
+						</code>
+	    			</pre>
+	    			<p>Si la expresión regular lleva comas (<a href="caracteres.html">caracter reservado</a>), estas se deben reemplazar por el caracter <b>°</b>(grado) para evitar errores:</p>
+	      			<pre>
+	    				<code>
+&lt;input name="user" required data-dj-validator="regexp,^[aeiou]{3°5}$,i"&gt;
+						</code>
+	    			</pre>	    			
+	    			<br>
+	      		</li>
+	      		<li><b>Usando una función propia:</b>
+	      			<p>La clave de validación <b>call</b> permite realizar la validación ejecutando una función definida por el usuario, 
+	      			esta función recibe el campo a validar y debe retornar true o false:
+	    			</p>
+	      			<pre>
+	    				<code>
+&lt;input name="textinput" type="text" data-dj-validator="call,isUpperCase"&gt;
+						</code>
+	    			</pre>
+	    			<p>Siendo la función del usuario:</p>
+	    			<pre>
+	    				<code>
+function isUpperCase($field){
+	value=$field.val();
+	if(value==value.toUpperCase())return true;
+	else return false;
+}
+						</code>
+	    			</pre><br>
+	      		</li>
+	      		<li><b>Agregando una nueva clave de validación al plugin</b>
+	      		<p>La función global <b>add</b> permite agregar una nueva clave de validación personalizada dentro del plugin:</p>
+	      			<pre>
+	    				<code>
+$.fn.djValidator.add(key_name,message,function);
+						</code>
+	    			</pre>
+	    			<p>Donde:</p>
+					<p><b>key_name:</b> Es la clave de validación que se creará</p>
+					<p><b>message:</b> Es el mensaje de validación que se utilizará</p>
+					<p><b>function:</b> La función de validación a ejecutar, recibe 2 parámetros, el campo a validar <b>“field”</b> y los parámetros <b>“params”</b>, 
+					estos parámetros son un array que comienza en 1, puesto que el 0 es la clave de validación.</p>
+					<p>Ejemplo:</p>
+					<p>Creamos el validador <b>“even”</b>, que validara si el número introducido es par, además con un parámetro para que no sobrepase un valor máximo:</p>
+	      			<pre>
+	    				<code>
+$.fn.djValidator.add('even','only even numbers.',
+			function($field,params){
+				value=parseInt($field.val());
+				max= params[1];
+				if(value%2!=1||value>max)return false;
+				else return true;
+			}
+);
+						</code>
+	    			</pre>
+	    			<p>Luego se puede utilizar como cualquier otro validador del plugin:</p>
+	    			<pre>
+	    				<code>
+&lt;input type="text" data-dj-validator="even,10" required&gt;
+						</code>
+	    			</pre>
+	      		</li>
+	      	</ul>
+	  </div>
+	</div>
+	 <!-- Footer -->
+	<footer class="navbar">
+		<hr>
+	  <!-- Copyright -->
+	  <div class="footer-copyright text-center py-3">© 2020 Copyright:
+	    <a href="mailto:esneyderg357@gmail.com"> David Esneyder Jerez Garnica</a>
+	  </div>
+	  <!-- Copyright -->
+	
+	</footer>
+	<!-- Footer -->
+</body>
+</html>

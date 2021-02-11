@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>DjValidator</title>
+	<link rel="stylesheet" href="../../lib/bootstrap/bootstrap.min.css">
+</head>
+<body>
+	<nav class="navbar navbar-default">
+	  <div class="container-fluid">
+	    <!-- Brand and toggle get grouped for better mobile display -->
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+	        <span class="sr-only">Toggle navigation</span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	      </button>
+	      <a class="navbar-brand" href="#">DjValidator</a>
+	    </div>
+	
+	    <!-- Collect the nav links, forms, and other content for toggling -->
+	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	      <ul class="nav navbar-nav">
+	        <li class="active"><a href="index.html">v1</a></li>
+	        <li><a href="../../v2/es/index.html">versión 2 <span class="sr-only">(current)</span></a></li>
+	      </ul>
+	      <ul class="nav navbar-nav navbar-right">
+	        <li><a href="../en/index.html">English</a></li>
+	        <li class="active"><a href="index.html">Español</a></li>
+	      </ul>
+	    </div><!-- /.navbar-collapse -->
+	  </div><!-- /.container-fluid -->
+	</nav>
+	
+	<div class="row">
+		<div class="col-xs-6 col-sm-4 col-md-3">
+			<ul class="nav nav-pills nav-stacked">
+			  <li role="presentation"><a href="index.html">Inicio</a></li>
+			  <li role="presentation"><a href="validaciones.html">Validaciones disponibles</a></li>
+			  <li role="presentation"><a href="validacion_personalizada.html">Validaciones personalizadas</a></li>
+			  <li role="presentation"><a href="personalizacion.html">Personalización</a></li>
+			  <li role="presentation"><a href="atributos.html">Atributos disponibles</a></li>
+			  <li role="presentation"><a href="caracteres.html">Caracteres reservados</a></li>
+			  <li role="presentation" class="active"><a href="etiquetas.html">Referencia de etiquetas</a></li>
+			</ul>
+		</div>
+		<div class="col-xs-6 col-sm-8 col-md-8">
+			<h3>Página de solo consulta (VERSIÓN 1)</h3>
+			<h4><a href="../../v2/es/index.html">Por favor utilice la versión 2</a></h4>
+			
+			<h3><b>Referencia de etiquetas de los validadores</b></h3><br>
+			<p>Las siguientes etiquetas contienen los mensajes de validación para cada clave, estos se pueden cambiar en cualquier momento:</p>			
+	      	<pre>
+	    		<code>
+$.setDjValidatorLabels({
+		required:'Campo requerido.',
+		word_min:'Por lo menos $1 caracteres sin espacios.',
+		word_between:'Entre $1 y $2 caracteres sin espacios.',
+		atext_min:'Por lo menos $1 caracteres alfabéticos.',
+		......
+});
+				</code>
+	    	</pre>			
+			<table class="table table-bordered table-striped">
+			    <tr class="text-center">
+			      <td><strong>Etiqueta</strong></td>
+			      <td><strong>Descripción</strong></td>
+			    </tr>
+			    <tr>
+			    	<td><p>required</p></td>
+			    <td><p>Required</p></td>
+			  	</tr>
+			  	<tr>
+			    <td><p>word_min</p></td>
+			    <td><p>Word, cuando se omite el máximo</p></td>
+				  </tr>
+				  <tr>
+				    <td><p>word_between</p></td>
+				    <td><p>Word, sin omisiones</p></td>
+				  </tr>
+				  <tr>
+				    <td><p>atext_min</p></td>
+				    <td><p>atext, cuando se omite el máximo</p></td>
+				  </tr>
+				  <tr>
+				    <td><p>atext_between</p></td>
+				    <td><p>atext, sin omisiones</p></td>
+				  </tr>
+				  <tr>
+				    <td><p>antext_min</p></td>
+				    <td><p>antext, cuando se omite el máximo</p></td>
+				  </tr>
+				  <tr>
+				    <td><p>antext_between</p></td>
+				    <td><p>antext, sin omisiones</p></td>
+				  </tr>
+				  <tr>
+				    <td><p>text_min</p></td>
+				    <td><p>text, cuando se omite el máximo</p></td>
+				  </tr>
+				  <tr>
+				    <td><p>text_between</p></td>
+				    <td><p>text, sin omisiones</p></td>
+				  </tr>
+				  <tr>
+				    <td><p>int_invalid</p></td>
+				    <td><p>int, cuando no es un entero válido</p></td>
+				  </tr>
+				  <tr>
+				    <td><p>int_min</p></td>
+				    <td><p>int, cuando se omite el máximo</p></td>
+				  </tr>
+				  <tr>
+				    <td><p>int_max</p></td>
+				    <td><p>int, cuando se omite el mínimo</p></td>
+				  </tr>
+				  <tr>
+				    <td><p>int_between</p></td>
+				    <td><p>int, sin omisiones</p></td>
+				  </tr>
+				  <tr>
+				    <td><p>num_invalid</p></td>
+				    <td><p>num, cuando no es un número válido</p></td>
+				  </tr>
+				  <tr>
+				    <td><p>num_min</p></td>
+				    <td><p>num, cuando se omite el máximo</p></td>
+				  </tr>
+				  <tr>
+				    <td><p>num_max</p></td>
+				    <td><p>num, cuando se omite el mínimo</p></td>
+				  </tr>
+				  <tr>
+				    <td><p>num_between</p></td>
+				    <td><p>num, sin omisiones</p></td>
+				  </tr>
+				  <tr>
+				    <td><p>dig_min</p></td>
+				    <td><p>dig, cuando se omite el máximo</p></td>
+				  </tr>
+				  <tr>
+				    <td><p>dig_between</p></td>
+				    <td><p>dig, sin omisiones</p></td>
+				  </tr>
+				  <tr>
+				    <td><p>file_min</p></td>
+				    <td><p>file, cuando se omite la cantidad máxima</p></td>
+				  </tr>
+				  <tr>
+				    <td><p>file_between</p></td>
+				    <td><p>file, sin omitir cantidades</p></td>
+				  </tr>
+				  <tr>
+				    <td><p>file_format</p></td>
+				    <td><p>file, cuando no es un formato válido</p></td>
+				  </tr>
+				  <tr>
+				    <td><p>file_min_size</p></td>
+				    <td><p>file, cuando se especifica el tamaño mínimo</p></td>
+				  </tr>
+				  <tr>
+				    <td><p>file_max_size</p></td>
+				    <td><p>file, cuando se especifica el tamaño máximo</p></td>
+				  </tr>
+				  <tr>
+				    <td><p>file_ext</p></td>
+				    <td><p>efile, cuando no es una extensión válida</p></td>
+				  </tr>
+				  <tr>
+				    <td><p>email</p></td>
+				    <td><p>email, cuando se omite el máximo</p></td>
+				  </tr>
+				  <tr>
+				    <td><p>email_max</p></td>
+				    <td><p>email, sin omisiones</p></td>
+				  </tr>
+				  <tr>
+				    <td><p>phone</p></td>
+				    <td><p>phone, cuando no es válido</p></td>
+				  </tr>
+				  <tr>
+				    <td><p>url</p></td>
+				    <td><p>url, cuando se omite el máximo</p></td>
+				  </tr>
+				  <tr>
+				    <td><p>url_max</p></td>
+				    <td><p>url, sin omisiones</p></td>
+				  </tr>
+				  <tr>
+				    <td><p>ip</p></td>
+				    <td><p>ip, cuando no es una IP válida</p></td>
+				  </tr>
+				  <tr>
+				    <td><p>regexp</p></td>
+				    <td><p>regexp, cuando no cumple la expresión</p></td>
+				  </tr>
+				  <tr>
+				    <td><p>or</p></td>
+				    <td><p>or, cuando ningún campo esta lleno</p></td>
+				  </tr>
+				  <tr>
+				    <td><p>equal</p></td>
+				    <td><p>equal, cuando los campos son diferentes</p></td>
+				  </tr>
+				  <tr>
+				    <td><p>not_equal</p></td>
+				    <td><p>nequal, cuando los campos son iguales</p></td>
+				  </tr>
+				  <tr>
+				    <td><p>multi_min</p></td>
+				    <td><p>multi, cuando se omite el máximo</p></td>
+				  </tr>
+				  <tr>
+				    <td><p>multi_between</p></td>
+				    <td><p>multi, sin omisiones</p></td>
+				  </tr>
+				  <tr>
+				    <td><p>call</p></td>
+				    <td><p>call, llamada a una función del usuario</p></td>
+				  </tr>
+				  <tr>
+				    <td><p>radio</p></td>
+				    <td><p>radio, validar radios</p></td>
+				  </tr>
+				  <tr>
+				    <td><p>check_single</p></td>
+				    <td><p>check, sin parámetros</p></td>
+				  </tr>
+				  <tr>
+				    <td><p>check_multi_min</p></td>
+				    <td><p>check, cuando se omite el máximo</p></td>
+				  </tr>
+				  <tr>
+				    <td><p>check_multi_between</p></td>
+				    <td><p>check, sin omisiones</p></td>
+				  </tr>
+			  </table>
+	  </div>
+	</div>
+	 <!-- Footer -->
+	<footer class="navbar">
+		<hr>
+	  <!-- Copyright -->
+	  <div class="footer-copyright text-center py-3">© 2020 Copyright:
+	    <a href="mailto:esneyderg357@gmail.com"> David Esneyder Jerez Garnica</a>
+	  </div>
+	  <!-- Copyright -->
+	
+	</footer>
+	<!-- Footer -->
+</body>
+</html>
